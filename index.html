@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Programu ya hali ya hewa. Tafuta jiji lolote au tumia eneo lako kuona joto, unyevu, kasi ya upepo na hali ya hewa.">
+  <title>Hali ya Hewa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="weather-clear">
+
+  <!-- Background overlay -->
+  <div class="bg-overlay" id="bgOverlay"></div>
+
+  <!-- Language Toggle — fixed top-right -->
+  <button id="langToggle" class="lang-toggle" aria-label="Badilisha lugha">
+    <span id="langLabel">Badilisha Lugha</span>
+  </button>
+
+  <main class="container">
+    <!-- App Header -->
+    <header class="app-header">
+      <h1 id="appTitle">Hali ya Hewa</h1>
+      <p class="tagline" id="tagline">Hali ya hewa ya wakati halisi, popote.</p>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-section">
+      <form id="searchForm" class="search-bar" autocomplete="off">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="cityInput" placeholder="Tafuta jiji..." aria-label="Jina la jiji">
+        <button type="submit" id="searchBtn" aria-label="Tafuta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+      </form>
+      <button id="locationBtn" class="location-btn" aria-label="Tumia eneo langu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <span id="locationBtnText">Tumia Eneo Langu</span>
+      </button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loader" class="loader hidden">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="errorMsg" class="error-msg hidden"></div>
+
+    <!-- Weather Card -->
+    <section id="weatherCard" class="weather-card hidden" aria-label="Taarifa za hali ya hewa">
+      <div class="weather-main">
+        <img id="weatherIcon" class="weather-icon" src="" alt="Ikoni ya hali ya hewa">
+        <div class="temp-block">
+          <span id="temperature" class="temperature">--</span>
+          <span class="temp-unit">°C</span>
+        </div>
+        <p id="description" class="description">--</p>
+      </div>
+
+      <h2 id="cityName" class="city-name">--</h2>
+
+      <div class="weather-details">
+        <div class="detail-item" id="humidityDetail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+          </svg>
+          <div>
+            <span class="detail-value" id="humidity">--%</span>
+            <span class="detail-label" data-i18n="humidity">Unyevu</span>
+          </div>
+        </div>
+        <div class="detail-item" id="windDetail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+          </svg>
+          <div>
+            <span class="detail-value" id="windSpeed">-- km/h</span>
+            <span class="detail-label" data-i18n="wind">Upepo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
